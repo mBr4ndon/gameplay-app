@@ -6,6 +6,7 @@ import { ButtonIcon} from '../../components/ButtonIcon';
 
 import { styles } from './styles';
 import IllustrationImg from '../../assets/illustration.png';
+import { Background } from '../../components/Background';
 
 
 export function SignIn() {
@@ -17,32 +18,34 @@ export function SignIn() {
   } 
   
   return (
-    <View style={styles.container}>
-      <Image 
-        source={IllustrationImg} 
-        style={styles.image} 
-        resizeMode="stretch"
-      />
-
-      <View style={styles.content}>
-        <Text style={styles.title}>
-          Conecta-te e{'\n'}
-          diverte-te a ser{'\n'}
-          #epicgamer
-        </Text>
-
-        <Text style={styles.subtitle}>
-          Cria grupos para jogares os teus jogos {'\n'}
-          favoritos com os teus amigos
-        </Text>
-
-        <ButtonIcon 
-          title="Login com Discord"
-          onPress={handleSignIn}
+    <Background>
+      <View style={styles.container}>
+        <Image 
+          source={IllustrationImg} 
+          style={styles.image} 
+          resizeMode="stretch"
         />
 
-      </View>
+        <View style={styles.content}>
+          <Text style={styles.title}>
+            Conecta-te e{'\n'}
+            diverte-te a ser{'\n'}
+            #epicgamer
+          </Text>
 
-    </View>
+          <Text style={styles.subtitle}>
+            Cria grupos para jogares os teus jogos {'\n'}
+            favoritos com os teus amigos
+          </Text>
+
+          <ButtonIcon 
+            title="Login com Discord"
+            onPress={handleSignIn}
+          />
+
+        </View>
+
+      </View>
+    </Background>
   );
 }

@@ -10,6 +10,8 @@ import { FlatList } from "react-native";
 import { Appointment } from "../../components/Appointment";
 import { ListDivider } from "../../components/ListDivider";
 
+import { Background } from '../../components/Background';
+
 export function Home() {
   
   const [category, setCategory] = useState('');
@@ -46,7 +48,7 @@ export function Home() {
   }
 
   return (
-    <View style={styles.container}>
+    <Background>
       <View style={styles.header}>
         <Profile />
         <ButtonAdd />
@@ -74,6 +76,6 @@ export function Home() {
           showsVerticalScrollIndicator={false}
         />
       </View>
-    </View>
+    </Background>
   );
 }
