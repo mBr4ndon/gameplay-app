@@ -1,16 +1,64 @@
-import React from "react";
-import { View } from "react-native";
+import React, { useState } from "react";
+import { View, Text } from "react-native";
 import { styles } from "./styles";
 
 import { Profile } from "../../components/Profile";
+import { ButtonAdd } from "../../components/ButtonAdd";
+import { CategorySelect } from "../../components/CategorySelect";
+import { ListHeader } from "../../components/ListHeader";
+import { FlatList } from "react-native";
 
 export function Home() {
+  
+  const [category, setCategory] = useState(0);
+
+  const appointments = [
+    {
+      id: '1', 
+      guild: {
+        id: '1', 
+        name: 'Elo Hell Warriors',
+        icon: null,
+        owner: true,
+      },
+      category: '1',
+      date: '22/07 às 20h40',
+      description: 'Vamos feedar que nem dejenerados até chegar ao Iron IV'
+    }
+  ]
+
+  function handleSelectedCategory(categoryId: number) {
+    categoryId === category ? setCategory(0) : setCategory(categoryId);
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Profile />
+        <ButtonAdd />
       </View>
 
+      <View>
+        <CategorySelect 
+          categorySelected={category}
+          setCategory={handleSelectedCategory}
+        />
+
+        <View style={styles.content}>
+          <ListHeader 
+            title="Partidas agendadas"
+            subtitle="Total 6"
+          />
+
+          <FlatList 
+            data={appointments}
+            keyExtractor={item => item.id}
+            renderItem={({ item }) => (
+              <Text>{item.guild.name}</Text>
+            )}
+          />
+        </View>
+      </View>
     </View>
   );
 }
