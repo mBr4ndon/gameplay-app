@@ -6,8 +6,8 @@ import { categories } from '../../utils/categories';
 import { Category } from "../Category";
 
 type Props = {
-  categorySelected: number;
-  setCategory: (categoryId : number) => void;
+  categorySelected: string;
+  setCategory: (categoryId : string) => void;
 }
 
 export function CategorySelect({ categorySelected, setCategory } : Props) {

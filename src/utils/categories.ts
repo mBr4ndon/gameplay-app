@@ -5,22 +5,22 @@ import Training from '../assets/training.svg';
 
 export const categories = [
   { 
-    id: 1,
+    id: '1',
     title: 'Ranked',
     icon: Ranked
   },
   { 
-    id: 2,
+    id: '2',
     title: 'Duel 1x1',
     icon: Duel
   },
   { 
-    id: 3,
+    id: '3',
     title: 'Fun',
     icon: Fun
   },
   { 
-    id: 4,
+    id: '4',
     title: 'Practise',
     icon: Training
   }
