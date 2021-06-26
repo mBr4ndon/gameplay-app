@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import { styles } from "./styles";
 
 import { Profile } from "../../components/Profile";
@@ -42,7 +42,67 @@ export function Home() {
       category: '1',
       date: '22/07 às 20h40',
       description: 'Vamos feedar que nem dejenerados até chegar ao Iron IV'
-    }
+    },
+    {
+      id: '3', 
+      guild: {
+        id: '1', 
+        name: 'Elo Hell Warriors',
+        icon: null,
+        owner: true,
+      },
+      category: '1',
+      date: '22/07 às 20h40',
+      description: 'Vamos feedar que nem dejenerados até chegar ao Iron IV'      
+    },
+    {
+      id: '4', 
+      guild: {
+        id: '1', 
+        name: 'Elo Hell Warriors',
+        icon: null,
+        owner: true,
+      },
+      category: '1',
+      date: '22/07 às 20h40',
+      description: 'Vamos feedar que nem dejenerados até chegar ao Iron IV'      
+    },
+    {
+      id: '5', 
+      guild: {
+        id: '1', 
+        name: 'Elo Hell Warriors',
+        icon: null,
+        owner: true,
+      },
+      category: '1',
+      date: '22/07 às 20h40',
+      description: 'Vamos feedar que nem dejenerados até chegar ao Iron IV'      
+    },
+    {
+      id: '6', 
+      guild: {
+        id: '1', 
+        name: 'Elo Hell Warriors',
+        icon: null,
+        owner: true,
+      },
+      category: '1',
+      date: '22/07 às 20h40',
+      description: 'Vamos feedar que nem dejenerados até chegar ao Iron IV'      
+    },
+    {
+      id: '7', 
+      guild: {
+        id: '1', 
+        name: 'Elo Hell Warriors',
+        icon: null,
+        owner: true,
+      },
+      category: '1',
+      date: '22/07 às 20h40',
+      description: 'Vamos feedar que nem dejenerados até chegar ao Iron IV'      
+    },
   ]
 
   function handleSelectedCategory(categoryId: string) {
@@ -69,26 +129,25 @@ export function Home() {
         setCategory={handleSelectedCategory}
       />
 
-      <View style={styles.content}>
-        <ListHeader 
-          title="Partidas agendadas"
-          subtitle="Total 6"
-        />
+      <ListHeader 
+        title="Partidas agendadas"
+        subtitle="Total 6"
+      />
 
-        <FlatList 
-          data={appointments}
-          keyExtractor={item => item.id}
-          renderItem={({ item }) => (
-            <Appointment 
-              data={item}
-              onPress={handleAppointmentDetails}
-            />
-          )}
-          ItemSeparatorComponent={() => <ListDivider />}
-          style={styles.matches}
-          showsVerticalScrollIndicator={false}
-        />
-      </View>
+      <FlatList 
+        data={appointments}
+        keyExtractor={item => item.id}
+        renderItem={({ item }) => (
+          <Appointment 
+            data={item}
+            onPress={handleAppointmentDetails}
+          />
+        )}
+        ItemSeparatorComponent={() => <ListDivider />}
+        contentContainerStyle={{paddingBottom: 69}}
+        style={styles.matches}
+        showsVerticalScrollIndicator={false}
+      />
     </Background>
   );
 }
