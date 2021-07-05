@@ -1,17 +1,37 @@
 import React from "react";
-import { Image } from "react-native";
+import { Image, View } from "react-native";
 
 import { styles } from "./styles";
 
-export function GuildIcon() {
+const { CDN_IMAGE } = process.env;
 
-  const uri = 'https://i1.wp.com/getdrawings.com/free-icon/green-discord-icon-60.png';
+import DiscordSvg from '../../assets/discord.svg';
+
+type Props = {
+  guildId: string;
+  iconId: string | null;
+}
+
+export function GuildIcon({ guildId, iconId }: Props) {
+
+  const uri = `${CDN_IMAGE}/icons/${guildId}/${iconId}.png`
+  // const uri = 'https://i1.wp.com/getdrawings.com/free-icon/green-discord-icon-60.png';
 
   return (
-    <Image 
-      source={{ uri }} 
-      style={styles.image}
-      resizeMode="cover"
-    />
+    <View style={styles.container}>
+      {
+        iconId ? 
+        <Image 
+          source={{ uri }} 
+          style={styles.image}
+          resizeMode="cover"
+        /> : 
+        <DiscordSvg 
+          width={40} 
+          height={40}
+        />
+      }
+    </View>
+
   );
 }
